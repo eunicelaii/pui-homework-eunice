@@ -32,6 +32,16 @@ body{
     background-color: black;
 }
 
+.navmenu{
+    margin-top:20px;
+    margin-bottom: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+
+}
 
 /*---PRODUCT GALLERY----*/
 .sitebox{
