@@ -204,6 +204,10 @@ select{
     margin-top: 80px;
 }
 
+.addtocart p{
+    margin: 0;
+}
+
 /*---SHOPPING CART PAGE----*/
 
 .cartparentcontainer{
@@ -271,11 +275,15 @@ select{
 .yellowbutton{
     font-size: 20px;
     font-weight: bold;
-    height: 75px;
-    width: 200px;
+    text-align: center;
+
+    height: auto;
+    width: auto;
     padding: 10px 30px;
     background-color: yellow;
     border: 2px solid black;
+
+    cursor: pointer;
 
     align-self: end;
 
