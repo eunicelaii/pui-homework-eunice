@@ -134,15 +134,6 @@ hw5Cart.push(appleRoll);
 
 console.log("imported js code", hw5Cart);
 
-function createElement(cartItem){
-    const template = document.quereySelector('#cartTemplate');
-    const clone = template.contnent.cloneNode(true);
-
-    cartItem.element = clone.querySelector('.productcarbox');
-
-
-}
-
 
 
 // ADD TO CART THINGS NEED TO BE IN AN IF STATMENT 

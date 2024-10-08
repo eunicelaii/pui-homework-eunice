@@ -40,13 +40,7 @@ let rollData = rolls[rollType]; //this is what stores the stuff
 //initializing variables
 let rollTitle = '';
 let rollImageFile = '';
-
-if (rollData && "basePrice" in rollData) {
-    rollBasePrice = rollData["basePrice"];
-    console.log("Base price found:", rollBasePrice);
-} else {
-    rollBasePrice = 0;
-}
+let rollBasePrice = rollData["basePrice"];
 
 console.log('Roll Data:', rollData); 
 
@@ -116,56 +110,32 @@ class Roll {
     }
 }
 
-
-// hw5 cart DELETE FOR HW 6
-
-hw5Cart = [];
-
-let originalRoll = new Roll("Original", "Sugar Milk", "1", "2.49");
-let walnutRoll = new Roll("Walnut", "Vanilla Milk", "12", "3.49");
-let raisinRoll = new Roll("Raisin", "Sugar Milk", "3", "2.99");
-let appleRoll = new Roll("Apple", "Original", "3", "3.49");
-
-
-hw5Cart.push(originalRoll);
-hw5Cart.push(walnutRoll);
-hw5Cart.push(raisinRoll);
-hw5Cart.push(appleRoll);
-
-console.log("imported js code", hw5Cart);
-
-function createElement(cartItem){
-    const template = document.quereySelector('#cartTemplate');
-    const clone = template.contnent.cloneNode(true);
-
-    cartItem.element = clone.querySelector('.productcarbox');
-
-
-}
-
-
-
-// ADD TO CART THINGS NEED TO BE IN AN IF STATMENT 
-// const addToCartButton = document.getElementById('addToCart');
-// addToCartButton.onclick = addToCart;
+const addToCartButton = document.getElementById('addToCart');
+addToCartButton.onclick = addToCart;
 
 //add to cart
 
-/*COMMENT BACK IN FOR HW 6*/
+function addToCart() {
+    //const thisRolltype = rollType;
 
-// function addToCart() {
-//     currentGlazingOption = document.getElementById('glazingOptions');
-//     currentPackSizeOption = document.getElementById('packSizeOptions');
-//     const rollGlazing = currentGlazingOption.options[currentGlazingOption.selectedIndex].textContent;
-//     const packSize = currentPackSizeOption.options[currentPackSizeOption.selectedIndex].textContent;
-//     const basePrice = rollBasePrice;
+    currentGlazingOption = document.getElementById('glazingOptions');
+    currentPackSizeOption = document.getElementById('packSizeOptions');
+    const rollGlazing = currentGlazingOption.options[currentGlazingOption.selectedIndex].textContent;
+    const packSize = currentPackSizeOption.options[currentPackSizeOption.selectedIndex].textContent;
+    const basePrice = rollData.basePrice;
 
-//     const newRoll = new Roll(rollType, rollGlazing, packSize, basePrice);
+    const newRoll = new Roll(rollType, rollGlazing, packSize, basePrice);
 
-//     cart.push(newRoll);
-//     console.log(cart);
+    cart.push(newRoll);
+    console.log(cart);
 
-// }
+}
+
+// hw5 cart
+
+hw5Cart = [];
+
+
 // function saveToLocalStorage(){
 //     const cartArray = Array.from(cart);
 
@@ -185,46 +155,41 @@ function createElement(cartItem){
 
   //----loading in page
 
-  if (window.location.pathname === '/product.html') {
-    document.addEventListener('DOMContentLoaded', function() { //waiting for stuff on the page to load first, before populating it
+  document.addEventListener('DOMContentLoaded', function() { //waiting for stuff on the page to load first, before populating it
 
-        const glazingOptions = [
-            { name: 'Keep original', priceAdaptation: 0 },
-            { name: 'Sugar milk', priceAdaptation: 0 },
-            { name: 'Vanilla milk', priceAdaptation: 0.50 },
-            { name: 'Double chocolate', priceAdaptation: 1.50 }
-        ];
-        
-        const packSizeOptions = [
-            { name: '1', multiplier: 1 },
-            { name: '3', multiplier: 3 },
-            { name: '6', multiplier: 5 },
-            { name: '12', multiplier: 10 }
-        ];
-        
-        let glazingDropdown = document.getElementById("glazingOptions")
-        for (let i = 0; i < glazingOptions.length; i += 1) {
-            let optionElement = document.createElement("option");
-            optionElement.textContent = glazingOptions[i].name;
-            optionElement.value = glazingOptions[i].priceAdaptation;
-            glazingDropdown.appendChild(optionElement);
-        }
-        let packSizeDropdown = document.getElementById("packSizeOptions")
-        for (let i = 0; i < packSizeOptions.length; i += 1){
-            let optionElement = document.createElement("option");
-            optionElement.textContent = packSizeOptions[i].name;
-            optionElement.value = packSizeOptions[i].multiplier;
-            packSizeDropdown.appendChild(optionElement);
-        }
+    const glazingOptions = [
+        { name: 'Keep original', priceAdaptation: 0 },
+        { name: 'Sugar milk', priceAdaptation: 0 },
+        { name: 'Vanilla milk', priceAdaptation: 0.50 },
+        { name: 'Double chocolate', priceAdaptation: 1.50 }
+    ];
     
-        // retrieveFromLocalStorage();
+    const packSizeOptions = [
+        { name: '1', multiplier: 1 },
+        { name: '3', multiplier: 3 },
+        { name: '6', multiplier: 5 },
+        { name: '12', multiplier: 10 }
+    ];
     
+    let glazingDropdown = document.getElementById("glazingOptions")
+    for (let i = 0; i < glazingOptions.length; i += 1) {
+        let optionElement = document.createElement("option");
+        optionElement.textContent = glazingOptions[i].name;
+        optionElement.value = glazingOptions[i].priceAdaptation;
+        glazingDropdown.appendChild(optionElement);
     }
-    )
-  } else {
-    console.log("You are not on the cart page");
-  }
+    let packSizeDropdown = document.getElementById("packSizeOptions")
+    for (let i = 0; i < packSizeOptions.length; i += 1){
+        let optionElement = document.createElement("option");
+        optionElement.textContent = packSizeOptions[i].name;
+        optionElement.value = packSizeOptions[i].multiplier;
+        packSizeDropdown.appendChild(optionElement);
+    }
 
+    // retrieveFromLocalStorage();
+
+}
+)
 
 
 //   ----cart
