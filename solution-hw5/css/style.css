@@ -212,11 +212,11 @@ select{
 
 .cartparentcontainer{
     width: 700px;
-    margin-left: 400px;
+    margin-left: 700px;
     
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     
     gap: 20px;
 }
@@ -285,6 +285,13 @@ select{
     font-weight: bold;
     text-decoration: underline 2px;
 
+}
+
+.cartProductprice{
+    display: flex;
+    align-self: right;
+    font-size: 24px;
+    padding-left: 150px;
 }
 
 .price{

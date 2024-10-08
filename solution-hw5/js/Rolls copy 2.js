@@ -113,51 +113,44 @@ class Roll {
         this.glazing =  rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
-
-        this.element = null;
     }
 }
 
-const hw5Cart = [];
-
-function addNewProduct(thisRollType, rollGlazing, packSize, basePrice) {
-    const product = new Roll(thisRollType, rollGlazing, packSize, basePrice);
-
-    hw5Cart.push(product);
-}
 
 // hw5 cart DELETE FOR HW 6
 
-const originalRoll = addNewProduct("Original", "Sugar Milk", "1", "2.49");
-const walnutRoll = addNewProduct("Walnut", "Vanilla Milk", "12", "3.49");
-const raisinRoll = addNewProduct("Raisin", "Sugar Milk", "3", "2.99");
-const appleRoll = addNewProduct("Apple", "Original", "3", "3.49");
+hw5Cart = [];
 
-console.log("This is the HW5 cart", hw5Cart);
+let originalRoll = new Roll("Original", "Sugar Milk", "1", "2.49");
+let walnutRoll = new Roll("Walnut", "Vanilla Milk", "12", "3.49");
+let raisinRoll = new Roll("Raisin", "Sugar Milk", "3", "2.99");
+let appleRoll = new Roll("Apple", "Original", "3", "3.49");
 
-for (const product of hw5Cart) {
-    console.log(product);
-    // createElement(product);
+
+hw5Cart.push(originalRoll);
+hw5Cart.push(walnutRoll);
+hw5Cart.push(raisinRoll);
+hw5Cart.push(appleRoll);
+
+console.log("imported js code", hw5Cart);
+
+function createElement(roll){
+    const template = document.quereySelector('#cartTemplate');
+    const clone = template.contnent.cloneNode(true);
+
+    roll.element = clone.querySelector('.product');
+
+    const btnDelete = roll.element.querySelector('.removebutton');
+    console.log(btnDelete);
+    btnDelete.addEventListener('click',deleteProduct(roll));
+
+    updateElement(roll);
 
 }
 
-// function createElement(product){
-//     console.log('Creating an element!');
-
-//     const template = document.querySelector('#cartTemplate');
-//     const clone = template.content.cloneNode(true);
-//     product.element = product.querySelector('.product');
-    
-//     console.log(roll.element);
-
-    // const btnDelete = roll.element.querySelector('.removebutton');
-    // console.log(btnDelete);
-    // btnDelete.addEventListener('click',deleteProduct(roll));
-
-    // updateElement(roll);
-
-// }
-
+function deleteProduct(roll) {
+    product.element.remove();
+}
 
 function updateElement(roll) {
     //select from html
