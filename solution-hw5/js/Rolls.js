@@ -140,18 +140,44 @@ for (const product of hw5Cart) {
 
 function createElement(product){
 
+    // make clone of notecard template
     const template = document.querySelector('#cartTemplate');
     const clone = template.content.cloneNode(true);
     product.element = clone.querySelector('.cartProduct');
 
     console.log(product.element.innerHTML);
+    
+    //delete button
+    const btnDelete = product.element.querySelector('.removebutton');
+    btnDelete.addEventListener('click', () => deleteProduct(product));
 
+    // add  notecard to DOM
     const cartListElement = document.querySelector('#cartList');
     cartListElement.append(product.element);
 
+    updateElement(product);
+
 }
 
+function updateElement(product){
+    const productImageElement = product.element.querySelector('.cartimage');
+    console.log(productImageElement);
+    const productTitleElement = product.element.querySelector('.cartProductTitle');
+    const productGlazingElement = product.element.querySelector('.cartProductGlazing');
+    const productSizeElement = product.element.querySelector('.cartProductSize');
+    const productPriceElement = product.element.querySelector('.cartProductPrice');
 
+    productTitleElement.innerText = product.type + " Cinnamon Roll";
+    productGlazingElement.innerText = product.glazing;
+    productSizeElement.innerText = "Pack size: " + product.size;
+    productPriceElement.innerText = "$ " + product.basePrice;
+
+}
+
+function deleteProduct(product){
+    product.element.remove();
+    hw5Cart.delete(product);
+}
 
 
 
