@@ -210,7 +210,7 @@ select{
 
 /*---SHOPPING CART PAGE----*/
 
-.cartparentcontainer{
+.cartParentContainer{
     width: 700px;
     margin-left: 700px;
     
@@ -227,12 +227,13 @@ select{
 
 }
 
-.product{
+.cartProduct{
     display: flex;
     flex-direction: column;
+    border: 5px solid black; 
 }
 
-.productCartBoxDetails{
+.cartProductBoxDetails{
     box-sizing: border-box;
 
     background-color: white;
@@ -240,22 +241,22 @@ select{
     display: flex;
     align-items: center;
     flex-direction: row; 
-
 }
 
-.cartimage{
+.cartProductimage{
     width:200px;
     height:200px;
     border: 2px solid black;
     margin-right: 30px;
 }
 
-.cartProductDetails{
+.cartProductDescription{
     
     display: flex;
     flex-direction:column;
     justify-content: space-between;
     align-items: left;
+    padding-right: 100px;
 
 }
 
@@ -289,7 +290,6 @@ select{
 
 .cartProductprice{
     display: flex;
-    align-self: right;
     font-size: 24px;
     padding-left: 150px;
 }

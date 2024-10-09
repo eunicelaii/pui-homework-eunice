@@ -116,23 +116,62 @@ class Roll {
     }
 }
 
+const hw5Cart = [];
+
+function addNewProduct(thisRollType, rollGlazing, packSize, basePrice) {
+    const product = new Roll(thisRollType, rollGlazing, packSize, basePrice);
+
+    hw5Cart.push(product);
+}
 
 // hw5 cart DELETE FOR HW 6
 
-hw5Cart = [];
+const originalRoll = addNewProduct("Original", "Sugar Milk", "1", "2.49");
+const walnutRoll = addNewProduct("Walnut", "Vanilla Milk", "12", "3.49");
+const raisinRoll = addNewProduct("Raisin", "Sugar Milk", "3", "2.99");
+const appleRoll = addNewProduct("Apple", "Original", "3", "3.49");
 
-let originalRoll = new Roll("Original", "Sugar Milk", "1", "2.49");
-let walnutRoll = new Roll("Walnut", "Vanilla Milk", "12", "3.49");
-let raisinRoll = new Roll("Raisin", "Sugar Milk", "3", "2.99");
-let appleRoll = new Roll("Apple", "Original", "3", "3.49");
+console.log("This is the HW5 cart", hw5Cart);
 
+for (const product of hw5Cart) {
+    console.log(product);
+    createElement(product);
 
-hw5Cart.push(originalRoll);
-hw5Cart.push(walnutRoll);
-hw5Cart.push(raisinRoll);
-hw5Cart.push(appleRoll);
+}
 
-console.log("imported js code", hw5Cart);
+function createElement(product){
+    console.log('Creating an element!');
+    const template = document.querySelector('#cartTemplate');
+    const clone = template.content.cloneNode(true);
+    product.element = clone.querySelector('.product');
+
+    //selects the cart list
+    const ProductListElement = document.querySelector('#cartList');
+    ProductListElement.prepend(product.append);
+
+    updateElement(product);
+
+}
+
+function updateElement(product) {
+    //select from html
+    const productImageElement = product.element.querySelector('.cartimage');
+    console.log(productImageElement);
+    const productTitleElement = product.element.querySelector('.cartProductTitle');
+    console.log("product Title:" + productTitleElement);
+
+    const productGlazingElement = product.element.querySelector('.cartProductGlazing');
+    const productSizeElement = product.element.querySelector('.cartProductSize');
+    const productPriceElement = product.element.querySelector('.cartProductPrice');
+
+    //update
+    productImageElement.src = 'double-chocolate-cinnamon-roll.jpg';
+    productTitleElement.innerText = product.thisRollType;
+    productGlazingElement.innerText = product.rollGlazing;
+    productSizeElement.innerText = product.packSize;
+    productPriceElement.innerText = product.basePrice;
+
+}
 
 
 

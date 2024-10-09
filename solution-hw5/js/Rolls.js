@@ -113,8 +113,6 @@ class Roll {
         this.glazing =  rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
-
-        this.element = null;
     }
 }
 
@@ -137,44 +135,24 @@ console.log("This is the HW5 cart", hw5Cart);
 
 for (const product of hw5Cart) {
     console.log(product);
-    // createElement(product);
+    createElement(product);
+}
+
+function createElement(product){
+
+    const template = document.querySelector('#cartTemplate');
+    const clone = template.content.cloneNode(true);
+    product.element = clone.querySelector('.cartProduct');
+
+    console.log(product.element.innerHTML);
+
+    const cartListElement = document.querySelector('#cartList');
+    cartListElement.append(product.element);
 
 }
 
-// function createElement(product){
-//     console.log('Creating an element!');
-
-//     const template = document.querySelector('#cartTemplate');
-//     const clone = template.content.cloneNode(true);
-//     product.element = product.querySelector('.product');
-    
-//     console.log(roll.element);
-
-    // const btnDelete = roll.element.querySelector('.removebutton');
-    // console.log(btnDelete);
-    // btnDelete.addEventListener('click',deleteProduct(roll));
-
-    // updateElement(roll);
-
-// }
 
 
-function updateElement(roll) {
-    //select from html
-    const productImageElement = product.element.querySelector('.cartimage');
-    const productTitleElement = product.element.querySelector('.cartProductTitle');
-    const productGlazingElement = product.element.querySelector('.cartProductGlazing');
-    const productSizeElement = product.element.querySelector('.cartProductSize');
-    const productPriceElement = product.element.querySelector('.cartProductPrice');
-
-    //update
-    productImage.src = '';
-    productTitleElement.innerText = thisRollType;
-    productGlazingElement.innerText = rollGlazing;
-    productSizeElement.innerText = packSize;
-    productPriceElement.innerText = basePrice;
-
-}
 
 
 
