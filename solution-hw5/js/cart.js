@@ -1,38 +1,3 @@
-
-const rolls = {
-    "Original": {
-        "basePrice": 2.49,
-        "imageFile": "original-cinnamon-roll.jpg"
-    },
-    "Apple": {
-        "basePrice": 3.49,
-        "imageFile": "apple-cinnamon-roll.jpg"
-    },
-    "Raisin": {
-        "basePrice": 2.99,
-        "imageFile": "raisin-cinnamon-roll.jpg"
-    },
-    "Walnut": {
-        "basePrice": 3.49,
-        "imageFile": "walnut-cinnamon-roll.jpg"
-    },
-    "Double-Chocolate": {
-        "basePrice": 3.99,
-        "imageFile": "double-chocolate-cinnamon-roll.jpg"
-    },
-    "Strawberry": {
-        "basePrice": 3.99,
-        "imageFile": "strawberry-cinnamon-roll.jpg"
-    }    
-};
-
-let cart = [];
-
-//creates params for each site
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString); //makes it so that you don't have to make seperate html file for each product
-const rollType = params.get('roll');
-
 console.log("params:" + params.get('roll'))
 
 let rollData = rolls[rollType]; //this is what stores the stuff
@@ -52,7 +17,7 @@ console.log('Roll Data:', rollData);
 
 console.log('global base price: ' + rollBasePrice);
 
-//set roll data price
+//for product page
 
 function setRollData(rollData){
     if (rollData){ //see if roll data even exists on this page
@@ -72,12 +37,45 @@ function setRollData(rollData){
 
 setRollData(rollData);
 
-console.log('--hw 4 stuff complete--')
 
-//calculating prices
+//roll class
+
+class Roll {
+    constructor(thisRollType, rollGlazing, packSize, basePrice) {
+        this.type = thisRollType;
+        this.glazing =  rollGlazing;
+        this.size = packSize;
+        this.basePrice = basePrice;
+        // this.price = this.calculatePrice();
+    }
+
+    // //calculate price
+    // calculatePrice(){
+    //     const packSizeMultiplier = {
+    //         1: 1,
+    //         3: 3,
+    //         6: 5, 
+    //         12: 10 
+    //     };
+
+    //     const glazingPrice = {
+    //         "Original": 0,
+    //         "Sugar Milk": 0,  
+    //         "Vanilla Milk": 0.50, 
+    //         "Double chocolate": 1.50,
+    //     };
+
+    //     //final equation
+    //     console.log("glazing option price:", glazingPrice[this.glazing]);
+    //     console.log("pack size option multiplier:", packSizeMultiplier[this.size]);
 
 
+    //     const productFinalPrice = ((this.basePrice + glazingPrice[this.glazing] * packSizeMultiplier[this.size])).toFixed(2);
+    //     return productFinalPrice;
+    // }
 
+
+}
 
 let glazingPrice = 0;
 let packSizePrice = 1;
@@ -110,14 +108,6 @@ console.log('--dropdown populated--')
 
 // button submit
 
-class Roll {
-    constructor(thisRollType, rollGlazing, packSize, basePrice) {
-        this.type = thisRollType;
-        this.glazing =  rollGlazing;
-        this.size = packSize;
-        this.basePrice = basePrice;
-    }
-}
 
 const hw5Cart = [];
 
@@ -139,6 +129,7 @@ console.log("This is the HW5 cart", hw5Cart);
 for (const product of hw5Cart) {
     console.log(product);
     createElement(product);
+    console.log(product.price);
 }
 
 function createElement(product){
@@ -173,7 +164,7 @@ function updateElement(product){
     productTitleElement.innerText = product.type + " Cinnamon Roll";
     productGlazingElement.innerText = product.glazing;
     productSizeElement.innerText = "Pack size: " + product.size;
-    productPriceElement.innerText = "$ " + product.basePrice;
+    productPriceElement.innerText = "$ " + product.finalPrice;
 
 }
 

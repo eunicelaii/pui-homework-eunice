@@ -212,7 +212,9 @@ select{
 
 .cartParentContainer{
     width: 700px;
-    margin-left: 700px;
+    padding-left: 400px;
+    padding-right: 200px;
+
     
     display: flex;
     flex-direction: column;
@@ -225,12 +227,15 @@ select{
     display:flex;
     flex-direction: column;
 
+    gap: 50px;
+
 }
 
 .cartProduct{
     display: flex;
     flex-direction: column;
-    border: 5px solid black; 
+
+    padding-bottom: 30px;
 }
 
 .cartProductBoxDetails{
@@ -241,6 +246,8 @@ select{
     display: flex;
     align-items: center;
     flex-direction: row; 
+    justify-content: space-between; 
+
 }
 
 .cartProductimage{
@@ -258,10 +265,6 @@ select{
     align-items: left;
     padding-right: 100px;
 
-}
-
-.cartProductDetails p {
-    line-height: 50px;
 }
 
 .cartProductTitle{
@@ -292,6 +295,7 @@ select{
     display: flex;
     font-size: 24px;
     padding-left: 150px;
+    margin-left: auto;
 }
 
 .price{
@@ -306,6 +310,17 @@ select{
     height: 3px;
     background-color: black;
     margin: 20px auto;
+}
+
+.cartTotalContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartFinalPrice{
+    font-weight: bold;
 }
 
 .yellowbutton{
@@ -326,10 +341,7 @@ select{
 
 }
 
-.finalprice{
-    align-self: end;
-    word-spacing: 300px;
-}
+
 
 /*---GENERAL----*/
 

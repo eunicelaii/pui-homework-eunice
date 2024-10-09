@@ -30,7 +30,7 @@ let cart = [];
 
 //creates params for each site
 const queryString = window.location.search;
-const params = new URLSearchParams(queryString); //makes it so that you don't have to make seperate html file for each product
+const params = new URLSearchParams(queryString); 
 const rollType = params.get('roll');
 
 console.log("params:" + params.get('roll'))
@@ -52,7 +52,7 @@ console.log('Roll Data:', rollData);
 
 console.log('global base price: ' + rollBasePrice);
 
-//set roll data price
+//for product page
 
 function setRollData(rollData){
     if (rollData){ //see if roll data even exists on this page
@@ -72,10 +72,7 @@ function setRollData(rollData){
 
 setRollData(rollData);
 
-console.log('--hw 4 stuff complete--')
-
-//calculating prices
-
+// calculating prices on product page 
 let glazingPrice = 0;
 let packSizePrice = 1;
 
@@ -105,7 +102,11 @@ function calculateTotal(){
 
 console.log('--dropdown populated--')
 
+
 // button submit
+//currently commented out at the bottom
+
+//roll class
 
 class Roll {
     constructor(thisRollType, rollGlazing, packSize, basePrice) {
@@ -113,8 +114,47 @@ class Roll {
         this.glazing =  rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
+        this.price = this.calculatePrice();
     }
+
+    //calculate price based on pack size and glazing
+    calculatePrice() {
+
+        const packSizeMultiplier = {
+            1: 1,
+            3: 3,
+            6: 5, 
+            12: 10, 
+        };
+
+        const glazingPrice = {
+            "Original": 0,  
+            "Sugar Milk": 0,  
+            "Vanilla Milk": 0.50, 
+            "Double Chocolate": 1.50,
+
+        };
+
+        //(base price + glazing price)*pack size
+        console.log(`base price of ${this.type}: ${this.basePrice}`);
+        console.log(`glazing price of ${this.type}: ${this.glazing}`);
+        console.log(`pack size multiplier of ${this.type}: ${this.size}`);
+
+
+        // Calculate the final price
+        if (hw5Cart.length === -1) {
+            const finalPrice = 0;
+            return finalPrice;
+        } else {
+            const finalPrice = (this.basePrice + glazingPrice[this.glazing]) * packSizeMultiplier[this.size];
+            return finalPrice; 
+        }
+    }
+
+
 }
+
+// hw5 cart DELETE FOR HW 6
 
 const hw5Cart = [];
 
@@ -124,18 +164,19 @@ function addNewProduct(thisRollType, rollGlazing, packSize, basePrice) {
     hw5Cart.push(product);
 }
 
-// hw5 cart DELETE FOR HW 6
 
-const originalRoll = addNewProduct("Original", "Sugar Milk", "1", "2.49");
-const walnutRoll = addNewProduct("Walnut", "Vanilla Milk", "12", "3.49");
-const raisinRoll = addNewProduct("Raisin", "Sugar Milk", "3", "2.99");
-const appleRoll = addNewProduct("Apple", "Original", "3", "3.49");
+const originalRoll = addNewProduct("Original", "Sugar Milk", 1, 2.49);
+const walnutRoll = addNewProduct("Walnut", "Sugar Milk", 12, 3.49); //should be vanilla milk
+const raisinRoll = addNewProduct("Raisin", "Sugar Milk", 3, 2.99);
+const appleRoll = addNewProduct("Apple", "Original", 3, 3.49);
 
 console.log("This is the HW5 cart", hw5Cart);
 
 for (const product of hw5Cart) {
     console.log(product);
     createElement(product);
+
+    console.log("this product's final price: " + product.price);
 }
 
 function createElement(product){
@@ -144,8 +185,6 @@ function createElement(product){
     const template = document.querySelector('#cartTemplate');
     const clone = template.content.cloneNode(true);
     product.element = clone.querySelector('.cartProduct');
-
-    console.log(product.element.innerHTML);
     
     //delete button
     const btnDelete = product.element.querySelector('.removebutton');
@@ -157,29 +196,57 @@ function createElement(product){
 
     updateElement(product);
 
+    updateFinalPrice();
 }
 
 function updateElement(product){
-    const productImageElement = product.element.querySelector('.cartimage');
-    console.log(productImageElement);
+    const productImageElement = product.element.querySelector('.cartProductimage');
     const productTitleElement = product.element.querySelector('.cartProductTitle');
     const productGlazingElement = product.element.querySelector('.cartProductGlazing');
     const productSizeElement = product.element.querySelector('.cartProductSize');
     const productPriceElement = product.element.querySelector('.cartProductPrice');
 
+    productImageElement.src = `assets/products/${product.type.toLowerCase()}-cinnamon-roll.jpg`;
     productTitleElement.innerText = product.type + " Cinnamon Roll";
     productGlazingElement.innerText = product.glazing;
     productSizeElement.innerText = "Pack size: " + product.size;
-    productPriceElement.innerText = "$ " + product.basePrice;
+    productPriceElement.innerText = "$ " + product.price.toFixed(2);
+
 
 }
 
 function deleteProduct(product){
+    const index = hw5Cart.indexOf(product);
+    
+    if (index > -1) { // Only proceed if the product is found
+        hw5Cart.splice(index, 1);
+    }
+
     product.element.remove();
-    hw5Cart.delete(product);
+
+    updateFinalPrice();
 }
+    
+//update final cart price
+function updateFinalPrice(){
+    console.log("calculating the final price...");
+
+    let cartFinalPrice = 0;
+    const cartPriceElement = document.getElementById('cartFinalPrice');
+
+    if (hw5Cart.length === 0) {
+        console.log("Cart is empty.");
+        cartPriceElement.innerText = '$0.00'; // Set to 0 when the cart is empty
+    } else {
+        for (const product of hw5Cart) {
+            cartFinalPrice += product.price;
+        }
+        cartPriceElement.innerText = '$' + cartFinalPrice.toFixed(2); 
+        console.log('Total cart price updated: $' + cartFinalPrice.toFixed(2));
+    }
 
 
+}
 
 
 // ADD TO CART THINGS NEED TO BE IN AN IF STATMENT 
