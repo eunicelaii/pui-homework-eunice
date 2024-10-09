@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+  <header>
+    <div class="headerbox">
+      <div class="headerboxleft">
+        <a href="./index.html">
+          <img class="logo" src="assets/logo/logo-01.svg" alt="Bun Bun Logo">
+        </a>
+      </div>
+
+      <div class="headerboxright">
+        <div class="navmenu">
+          <a href="./index.html">PRODUCTS</a>
+          <mark
+            ><b><a href="./cart.html">CART</a></b></mark
+          >
+        </div>
+        <hr class="logoline">
+        <div class="navtextbox">
+          <div class="pageheader">
+            <p>Our hand-made cinnamon rolls</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="cartParentContainer">
+
+      <!-- shopping cart items will be added here -->
+      <div id="cartList">
+
+        <!-- template -->
+        <template id="cartTemplate">
+
+          <!-- individual product -->
+          <div class="cartProduct">
+              <div class="cartProductBoxDetails">
+                <img class="cartProductimage" src="assets/products/original-cinnamon-roll.jpg" alt="Original cinnamon roll">
+    
+                <div class = "cartProductDescription">
+    
+                  <div class="cartProductTitle">
+                    Product Title goes here
+                  </div>
+                  <div class="cartProductGlazing">
+                    Product Glazing goes here
+                  </div>
+                  <div class="cartProductSize">
+                    Pack size goes here
+                  </div>
+                </div>
+              
+                <div class="cartProductPrice">
+                  price
+                </div>
+              </div>
+
+              <div class="removebutton">
+                Remove
+              </div>
+    
+          </div>
+        
+        </template>
+    
+      </div>
+     
+      <div class="cartFooter">
+        <hr class="solidline">
+
+        <div class="cartTotalContainer">
+          <p>
+            Total:
+          </p>
+          <div id="cartFinalPrice">
+            0
+          </div>
+        </div>
+    
+
+    
+        <button type="button" class="yellowbutton">Checkout</button>
+    
+      </div>
+
+    </div> 
+  <!-- for parent container -->
+
+  
+
+  </section>
+  <script src="js/rolls.js"></script>
+
+</body>
+</html>
