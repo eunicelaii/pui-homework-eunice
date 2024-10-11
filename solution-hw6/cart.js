@@ -124,6 +124,9 @@ function deleteProduct(product){
     product.element.remove();
 
     updateFinalPrice();
+
+    updateLocalStorage();
+
 }
 
 // retrieve from local storage
@@ -149,6 +152,11 @@ function retrieveFromLocalStorage() {
         }
 }
     
+function updateLocalStorage() {
+    const cartArrayString = JSON.stringify(finalCart);
+    localStorage.setItem('storedCart', cartArrayString);  // Store the updated cart array as a string in local storage
+}
+
 //update final cart price
 function updateFinalPrice(){
     console.log("calculating the final price...");
@@ -156,7 +164,7 @@ function updateFinalPrice(){
     let cartFinalPrice = 0;
     const cartPriceElement = document.getElementById('cartFinalPrice');
 
-    console.log("roll number: " + finalCart.length);
+    console.log("no of rolls in cart: " + finalCart.length);
 
     if (finalCart.length === 0) {
         console.log("Cart is empty.");
@@ -164,7 +172,7 @@ function updateFinalPrice(){
     } else {
         for (const product of finalCart) {
             cartFinalPrice += product.price;
-            console.log(`Adding product price: $${product.price}`);
+            console.log(`Adding product ${product.type} price: $${product.price}`);
         }
         cartPriceElement.innerText = '$' + cartFinalPrice.toFixed(2); 
         console.log('Total cart price updated: $' + cartFinalPrice.toFixed(2));
