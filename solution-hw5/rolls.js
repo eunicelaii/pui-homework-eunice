@@ -289,7 +289,9 @@ function updateFinalPrice(){
 
   //----loading in page
 
-  if (window.location.pathname === '/product.html') {
+  //populate poge
+
+  if (window.location.pathname = string) {
     document.addEventListener('DOMContentLoaded', function() { //waiting for stuff on the page to load first, before populating it
 
         const glazingOptions = [

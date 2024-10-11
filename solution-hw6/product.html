@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Product</title>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body>
+  <header>
+    <div class ="headerbox">
+      <div class ="headerboxleft">
+        <a href ="./index.html">
+          <img class="logo" src="assets/logo/logo-01.svg" alt="Bun Bun Logo">
+        </a>
+      </div>
+
+      <div class ="headerboxright">
+        <div class ="navmenu">
+            <mark><b><a href ="./index.html">PRODUCTS</a></b></mark>
+            <a href ="./cart.html">CART</a>
+        </div>
+        <hr class="logoline">
+        <div class = "navtextbox">
+          <div class ="pageheader">
+            <h3 id = 'rollTitle'> Original cinnamon roll</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+    
+  
+    <div class="sitebox">
+
+      <img id = 'rollImage' class="productpageimage" src="assets/products/original-cinnamon-roll.jpg" alt="original cinnamon roll">
+
+      <div class="productdescriptionbox">
+        <div class="productdescriptiontitle">
+          <p>Customize our delicious hand-made cinnamon bun to your liking!</p>
+        </div>
+        
+
+        <div class="dropdownmenu">
+          <div class= "dropdownlabel">
+            <p>Glazing</p>
+          </div> 
+          <select id="glazingOptions" name="glazing" onchange="glazingValue(this)">
+          </select>
+        </div>
+
+        <div class="dropdownmenu">
+          <div class= "dropdownlabel">
+            <p>Pack Size</p>
+          </div> 
+            <select id="packSizeOptions" name="Pack size" onchange="packSizeValue(this)" >
+            </select>
+        </div>
+
+        <div class="addtocart">
+          <p id="totalPrice">$2.49</p>
+          <button id = 'addToCart' class="yellowbutton">Add to Cart</button>
+
+        </div>
+
+      
+      </div>
+  
+  </div>
+  <script src="product.js"></script>
+
+</body>
+</html>
