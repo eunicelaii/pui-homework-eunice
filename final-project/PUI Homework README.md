@@ -213,7 +213,7 @@ Purpose: a personal portfolio for my photography/ videography/ product design wo
 - Want to show my multifaceted skills in mixed media
 - Emphasis on storytelling
 - Designed to look like a video editor
-- Questions: how can i make people want to explore the website, which in hand forces them to learn more about me?
+- Questions: how can I make people want to explore the website, which in hand forces them to learn more about me?
 
 - inspo: https://webflow.com/made-in-webflow/website/pierrelouis
 
@@ -221,7 +221,7 @@ Purpose: a personal portfolio for my photography/ videography/ product design wo
 
 ![idea 2 sketch](images/ideasketch2.jpg)
 
-Purpose: an interactive fridge that lets you click through ingredients, and it comes up with a list of recipes
+Purpose: an interactive fridge that lets you click through ingredients, and it comes up with a list of recipes.
 
 - Utilizes a preloaded set of recipes I pick
 - The ingredients are directly clickable
@@ -232,12 +232,12 @@ Purpose: an interactive fridge that lets you click through ingredients, and it c
 
 ![idea 3 sketch](images/ideasketch3.jpg)
 
-Purpose: an interactive 15 minute tracker that lets you input your daily activities, and visualize it into a bar graph and a “story”
+Purpose: an interactive 15-minute tracker that lets you input your daily activities, and visualize them into a bar graph and a “story”
 
 - I'm passionate about productivity and learning how to maximize your day
 - As you edit your day, your graph changes
-- For accessibility, make a way so that inputing your activities is easier, eg. sliders
-- Question: how would i make everything change live and smoothly? What visualizations will I use?
+- For accessibility, make a way so that inputting your activities is easier, eg. sliders
+- Question: how would I make everything change live and smoothly? What visualizations will I use?
  
 ## Feedback Summary
 
@@ -247,12 +247,12 @@ My TA stated that the portfolio idea is a great way to showcase the skills we le
 
 Next, my fridge idea is fun and useful to me, and is quite similar to a potential project of another student, which might allow us to collaborate and support each other if we both happen to choose this project. However, there may be some complications with creating pre-loaded and labeled data.
 
-Lastly, the third idea is relatively simple and clean, and is a tool that anyone can use. Some considerations I was given is how would i interpret somewhat arbitrary data and turn it into meaningful stories. The complication comes with the variability of input.
+Lastly, the third idea is relatively simple and clean, and is a tool that anyone can use. Some consideration I was given is how would i interpret somewhat arbitrary data and turn it into meaningful stories. The complication comes with the variability of input.
 
 ## Feedback Digestion
 
-I think I will go with my portfolio idea. Not only does it allow me to showcase all the skills we learned in this class, it gives me "room to grow". As it does not require as much preplanning as my other projects,  it allows me to build upon it step by step as it has lots of space for manipulation and improvement. It will also be benefical to contain all my other projects as I'm busy looking for an internship. 
+I think I will go with my portfolio idea. Not only does it allow me to showcase all the skills we learned in this class, it gives me "room to grow". As it does not require as much preplanning as my other projects,  it allows me to build upon it step by step, giving me lots of space for manipulation and improvement. It will also be benefical to contain all my other projects as I'm busy looking for an internship. 
 
-However, I'm still interested in my 15 minute tracker idea, and may try to learn how user generated data comes into play in development with the "build my character" mini game I want to include in my portfolio. I want the user to be able to manipulate my character to show my multifaceted interests and various skills, and I wonder if there is a way to ai generate different costumes depending on user input.
+However, I'm still interested in my 15-minute tracker idea. I may try to learn how user-generated data comes into play in development with the "build my character" mini-game I want to include in my portfolio. I want the user to be able to manipulate my character to show my multifaceted interests and various skills, and I wonder if there is a way to ai generate different costumes depending on user input.
 
-Now, my main concern is thinking of how it would visually look. I indicated that I wanted it to look like a video editing software, meaning that there will be minimal scrolling and that everything is placed onto one "dashboard screen", so I'm wondering if formating it would be too difficult. However, it does remind me how we formatted the notecards in lab activities, which is quite straightforward as long as I label my boxes properly, and use appropriate flex properities.
+Now, my main concern is thinking of how it would visually look. I indicated that I wanted it to look like video editing software, meaning that there will be minimal scrolling and that everything is placed onto one "dashboard screen", so I'm wondering if formatting it would be too difficult. However, it does remind me how we formatted the notecards in lab activities, which is quite straightforward as long as I label my boxes properly, and use appropriate flex properties.
