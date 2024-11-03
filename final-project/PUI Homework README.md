@@ -125,31 +125,120 @@ Remember to keep track of your prompts and usage for [FP4 writeup](#part-6-gener
 
 ## Project Description
 
-Briefly restate your motivation and a short description of your project.
+This is a personal portfolio showcasing my works within different fields, including photography, videography, and product design. This portfolio is made with the Programmable User Interface (PUI) course requirements in mind, including (1) using an interesting tool/ set of user interactions, (2) accessibility design, and (3) responsive design. 
+
+My portfolio is built with storytelling in mind, so it will incorporate video and animation components. It is built to look like a video editor because I use that program frequently for both personal and professional work.
 
 ## High-Fi Prototypes
 
 ### *Prototype 1*
 
-![title for prototype1](images/prototype1.png)
+![Portfolio Website](images/portfolioMockup.jpg)
 
-A brief description and summary of the user feedback (\<100 words, 2 images) 
+Overall, people thought my design was creative and well thought out. They liked the interactivity I included and the idea of mixed media within the portfolio. Those who understood video editing softwares found it easier to find smaller “discoverable” features, but overall, the portfolio was straightforward to navigate.
 
-### *Prototype 2*
-
-…
+[Figma Prototype](https://www.figma.com/proto/EYJzRCgiSNypChy2Ka6ahT/Personal-Portfolio?page-id=0%3A1&node-id=1-2&node-type=frame&viewport=743%2C-160%2C0.98&t=EXeejHUxyaXQCYzy-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2)
 
 ## Usability Test
 
-Discuss the user feedback you got during the evaluation / usability test (\~300 words). Indicate which feedback you implemented, inspired new directions, or otherwise influenced your final design. 
+### Objective: 
+To see if users can intuitively navigate the website, access the different portfolio pieces, and interact with “hidden features”.
+
+<details>
+  <summary>Study Questions</summary>
+  
+**Landing page: (if made)**
+- Is the introductory video informative? 
+
+**Character customization feature:**
+- Does this feature convey anything to you about the portfolio owner?
+
+**Project selection retrieval:**
+- Is it easy to navigate through the different projects? 
+- Are the projects the focus of the portfolio?
+
+**Life timeline interaction feedback:**
+- How much information should be showcased in the life timeline? 
+- Should there be a common theme within the events?
+
+**Overall navigation and final thoughts**
+- Are the mini-interactions distracting users from the project?
+- What is the balance between a fun interaction and a practical interaction that showcases skill?
+
+</details>
+
+<details>
+  <summary>User Testing Walkthrough/Questions</summary>
+
+**Introduction**
+Greeting: Thank you for participating in this user testing session for my personal portfolio. As I decided to stylize my website in an unconventional way, the goal is to see how easily you can navigate the site and access different information within my portfolio.
+
+Instructions: As you navigate the website, please think aloud and share any thoughts or questions you have as you explore its different components.
+
+Background given: This portfolio is inspired by a video editor you may have used before.
+
+**Possible questions after navigation**
+
+1. Landing page:
+- “What did you learn from the introduction video?”
+- “If you were to reaccess this portfolio, would you rewatch the entire video?”
+
+2. Character customization feature:
+- Task: “Can you turn Eunice into a rugby player?”
+- “Does this feature convey anything to you about the portfolio owner?”
+
+3. Project selection retrieval:
+- “Let's say you want to see the collection of videography projects. How would you do that?”
+- Task: “Navigate to another project within the product tab.”
+
+4. Life timeline interaction feedback:
+- “How would you go about navigating the timeline?”
+- Task: “Could you navigate to the time where…”
+- “Is there a common theme to the different events in the timeline?”
+
+5. Overall navigation and final thoughts:
+- “Is anything about the navigation confusing?”
+- “Did any of the mini-interactions cause more confusion than enjoyment?”
+- “Does knowing how a video editor works help you navigate the site better?”
+
+</details>
+
+### Insights from user testing
+**Intuitive use:** The layout is clean, but the character customizer section is imbalanced. The character screen and the toggle buttons look like separate features, as they are the same size. Additionally, one user’s first reaction was to press the space bar to play the timeline, just like in the video editor. As I did not consider this, this interaction did not do anything.
+
+**Changes made:** I will change the character customizer toggle buttons to be smaller and make it so that pressing space will play a video prompting the user to click around instead
+
+**Learnability:** The structure is simple, as it is all in one plaza. However, first-time visitors will need a guided walkthrough.
+
+**Changes made:** I will create a video landing page of myself explaining my website. I will also implement some sort of visual feedback when clicking through sections.
+
+**Accessibility:** The contrast between text and background is good, and the layout is spacious. However, some buttons and text are a bit small.
+
+**Changes made:** I will change the text size and buttons to be bigger, and create a light-mode version of the website.
+
 
 ## Updated Designs
 
-Show screenshots of your updated design based on the user feedback (\<100 words, \~2 images).
+<img src="images/introScreen.png" alt="Introduction Screen" width="270">
+<img src="images/lightmode.png" alt="lightmode" width="300">
+<img src="images/updatedMockup.png" alt="updatedMockup" width="300">
+
+<br>
+
+1. I will implement a (skippable) introduction video that acts as a landing page before you complete the website. It will be a video of me explaining the idea behind my portfolio and encouraging people to actively interact with it.
+
+2. While I am focused on creating an immersive experience, I will create a light mode for my website to make it easier for people not familiar with editing software to read.
+
+3. I changed the size of some of my website's features, including the character toggle buttons and the project buttons.
+
 
 ## Feedback Summary
 
-Summarize the feedback you received in the lab session and discuss how it influenced your design (\~300 words). 
+The people in my lab session all expressed that my idea is very creative, and no one expressed any difficulty in understanding that my design is modeled after video editing software. They also thought the mini-interactions were a fun addition that possibly added to my personality profile (fidgety, with the need for stress relief).
+However, they stressed the importance of providing context before accessing the website, which I plan on doing through a real-life video of me explaining my background and encouraging users to explore the website. My TA thought this was a good way of creating my landing page as it thematically relates to my portfolio.
+
+I was encouraged to look into a JS library that implements video-playing features and animations so that I could execute my video player-vision. 
+
 
 ## Milestones
 
@@ -157,44 +246,103 @@ Outline weekly milestones to plan your expected implementation progress until th
 
 ### *Implementation Plan*
 
-- [ ] Week 9 Oct 28 \- Nov 1:
+- **[X] Week 9 Oct 28 \- Nov 1:**
   - [X] FP1 due
-  - [ ] ...
   
-- [ ] Week 10 Nov 4 \- Nov 8:   
-  - [ ] FP2 due
+- **[ ] Week 10 Nov 4 \- Nov 8:**   
+  - [X] FP2 due
+  - Documentation Setup:
+    - [ ] (optional) learn how to use and implement storybook
+    - [ ]Connect Figma to working file
+  - Research:
+    - [ ] Get inspiration and create a list of required features from other people’s portfolios
+    - [ ] Learn how to use the different JS libraries I will be implementing
+  - Basic Structure Development:
+    - [ ] Set up the basic HTML structure, including placeholders for each major section (eg. video player, character customization etc.)
+    - [ ] Create well-named flexboxes in CSS to support responsive layout and styling adjustments
+  -  Placeholders & Text:
+    - [ ] Add placeholders for all icons and images to define layout and positioning 
+    - [ ] Insert simple text for each section as a preview of the final content
 
-- [ ] Week 11 Nov 11 \- Nov 15:  
-- [ ] Week 12 Nov 18 \- Nov 22:   
-- [ ] Week 13 Nov 25 \- Nov 29:  
+-**[ ] Week 11 Nov 11 \- Nov 15:**
+  - [ ] FP3 Due
+    - Icon and Imagery Creation:
+      - [ ] Design or gather all icons and visual elements needed for each feature.
+      - [ ] Replace placeholders with finalized icons and images, adjusting sizes and positions as needed.
+    - Interactivity and Styling Enhancements:
+      - [ ] Implement primary JS functions to support interactions (eg. change font, light/dark mode, other accessibility features)
+      - [ ] Fine-tune CSS for visual polish, adjusting colors, fonts, and layout details
 
-  - [ ] Thanksgiving  
-- [ ] Week 14 Dec 2 \- Dec 6:  
+- **[ ] Week 12 Nov 18 \- Nov 22:**
+  - Project Navigator:
+    - [ ] Begin loading all project files and assets into the website, ensuring each project is correctly categorized within its respective collection (e.g., Photography, Videography, Product)
+    - [ ] Develop a collapsible list for easy navigation, allowing users to expand and collapse project categories
+    - [ ] (Optional) Make the preview thumbnail “scruabble”
+    - [ ] Integrate the video player with the Project Navigator, so selecting a project automatically loads it in the player for seamless viewing.
+    - [ ] Implement a pop-up feature that enlarges projects when clicked, providing a closer look at project details
+    - [ ] For projects that are external webpage links or documents, add a distinct visual cue (e.g., an icon or label) that indicates users can directly click to access the project.
+
+- **[ ] Week 13 Nov 25 \- Nov 29 (Thanksgiving):**
+    - Loading Screen:
+      - [ ] Write a script for the loading screen video
+      - [ ] Film and edit introduction video, including relevant imagery and captioning for accessibility
+      - [ ] Implement a loading screen into the website, create buttons that allow you to play, pause, or fastforward the video
+
+    - [ ] Catch up on any unfinished tasks from previous weeks
+
+- **[ ] Week 14 Dec 2 \- Dec 6:**
   - [ ] FP4 due 
+  - Final Debugging & Testing:
+    - [ ] Conduct a debugging session to address layout, functionality, and performance issues
+    - [ ] Run final accessibility checks for compatibility with screen readers, keyboard navigation, etc
+  - Documentation:
+    - [ ] Document the final implementation, including any features added or modified
 
 ### *Libraries and Other Components*
 
-List the JS libraries and other components (if applicable) that you plan to use. 
-* 
+1. **Video.js** (https://videojs.com/)
+<br>
+Web video player that will allow me to create my loading page and display my different videography work within the website
+
+2. **Anime.js** (https://animejs.com/)
+<br>
+A javascript animation library that could help with my customer characterization animations
+
+3. **GSAP** (https://gsap.com/)
+<br>
+Another JS animation library
+Features: Timeline control, easing functions, and ability to animate multiple properties
+
+4. **Howler.js** (https://howlerjs.com/)
+<br>
+Supports multiple audio formats and sound sprites for my micro-interactions
 
 
 ## Generative AI Use Plan
 
-Outline how you plan to use Generative AI tools to aid in the implementation (\~300 words).
+I plan to leverage generative AI tools in design, development, and content creation. 
+
+Starting with design, tools like Figma’s AI plugins or DALL-E will enable rapid prototyping of visual elements, such as custom icons, backgrounds, and layout ideas, allowing me to experiment with aesthetics efficiently. 
+
+In development, I’ll use ChatGPT’s code generation to assist with complex coding features, like collapsible folders and interactive thumbnail scrubbers. These tools will provide optimized code suggestions and debugging support, ensuring smooth, responsive interactions. Additionally, generative AI will assist with brainstorming creative micro-interactions, such as a “fidget spinner” effect, by providing code examples I can refine and test. 
+
+For content creation, I’ll use AI to draft concise, polished descriptions for each project, establishing a professional tone throughout the portfolio.
 
 ### *Tool Use*
 
- What would you use? Edit the list given your plan. For each tool, explain briefly on what do you expect Generative AI to help you with and what might it not be able to help you with.
-
 * ChatGPT  
-  * I will use it for … because it can help me …  
-  * I will not use it for … because it might not be able to help me with …   
-* GitHub Copilot  
-* ...
+  * I will use it to debug code, as it can easily and efficiently identify wrong syntax and logic errors.
+  * I will not use it for writing my entire code, as it may use different syntax/ formatting styles we are taught in class. 
+* Bubble
+  * I will use the build guide to learn how to implement certain features into my website.
+  * I will not plagiarize off bubble.
 
 ### *Responsible Use*
 
-How would you use Generative AI responsibly? 
+* I can use AI to aid in coding assignments, but can only use it to augment existing work, not create solutions for me
+* I will ensure to cite the usage of AI in my code and images
+* I can use AI generation to create a broad high-level pseudocode, but not a step-by-step guide for lines of code
+
 
 ---
 
