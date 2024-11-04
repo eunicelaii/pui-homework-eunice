@@ -258,11 +258,11 @@ Outline weekly milestones to plan your expected implementation progress until th
     - [ ] Get inspiration and create a list of required features from other people’s portfolios
     - [ ] Learn how to use the different JS libraries I will be implementing
   - Basic Structure Development:
-    - [ ] Set up the basic HTML structure, including placeholders for each major section (eg. video player, character customization etc.)
-    - [ ] Create well-named flexboxes in CSS to support responsive layout and styling adjustments
+    - [X] Set up the basic HTML structure, including placeholders for each major section (eg. video player, character customization etc.)
+    - [X] Create well-named flexboxes in CSS to support responsive layout and styling adjustments
   -  Placeholders & Text:
-    - [ ] Add placeholders for all icons and images to define layout and positioning 
-    - [ ] Insert simple text for each section as a preview of the final content
+    - [X] Add placeholders for all icons and images to define layout and positioning 
+    - [X] Insert simple text for each section as a preview of the final content
 
 -**[ ] Week 11 Nov 11 \- Nov 15:**
   - [ ] FP3 Due
