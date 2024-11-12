@@ -377,6 +377,55 @@ button:active {
 
 /*---7. PROJECTS----*/
 
+.accordionButton {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    border-bottom: 2px solid #5E9286;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* .accordionButton:hover {
+    background-color: #5E9286;
+} */
+
+.accordionContent {
+    padding: 10px;
+    background-color: #121619;
+    display: none; 
+    color: #f0f0f0;
+}
+
+.accordionItem.active .accordionContent {
+    display: block; 
+}
+
+.projectShowcase {
+    height: 130px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.projectShowcase img {
+    height: 80%;
+    width: 90%;
+
+    object-fit: cover;
+
+}
+
+.projectShowcase h1 {
+    font-size: 14px;
+    font-weight: 300;
+
+}
+
+
 /*---8. SOCIALS CONTAINERS----*/
 
 .socialButton{
