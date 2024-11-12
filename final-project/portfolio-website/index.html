@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
       <title>Eunice Lai's Portfolio</title>
 
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
 <body class="websiteBackgroundColor">
     <div id="portfolioContainer">
         <div id="topBar">
             <img class="windowButtons" src="assets/icons/windowControls.png" alt="windowButtons"></img>
+            <div class="topBarButtons">
+                <button id="aboutButton">About</button>
+            </div>
             <div class="portfolioTitle">Eunice Lai's Portfolio</div>
 
         </div>
@@ -118,8 +123,38 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- About me popup -->
+
+<!--     animate__animated animate__bounceIn-->
+    <div class="popup " id="aboutMe"> 
+        <div class="popupContent">
+            <button class="closeButton" id="closeAbout"></button>
+    
+            <div class="logoHeader">
+                <img src="assets/euniceLaiLogoBlack.png">
+                <h2> Eunice Lai's Portfolio</h2>
+            </div>
+
+            <p>Hey there!</p>
+            <h3>I'm Eunice, and I am a...</h3>
+            <video width="320" height="50" autoplay muted controls loop>
+                <source src="assets/mypositionsVideo.mp4" type="video/mp4">
+            </video>
+            <h2> My passion is to create meaningful media that fosters human connection.</h2>
+
+        </div>
+
+        <img class="popupImage" src="assets/personalImage.jpeg" alt="Image of Eunice Lai">
 
     </div>
 
+    <div id="backgroundOverlay"></div>
+
+
+    <script src="js/popups.js"></script>
 </body>
+
+
 </html>
