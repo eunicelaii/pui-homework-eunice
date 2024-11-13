@@ -1,65 +1,42 @@
-console.log("porfolio stuff loaded")
+console.log("portfolio stuff loaded");
 
-/* accordian menu */
-const buttons = document.querySelectorAll('.accordionButton');
-
-buttons.forEach(button => {
-    button.addEventListener('click', toggleAccordion);
-});
-
-// Add event listeners for toggle switches
-document.querySelectorAll('.togglSwitch input[type="checkbox"]').forEach(toggle => {
-    toggle.addEventListener('change', function(e) {
-        const accordionLabel = this.closest('.accordionLabel');
-        const accordionItem = accordionLabel.parentElement;
-        
-    // Collapse all other items
+// Function to handle the toggle of the accordion
+function toggleAccordion(accordionItem, isChecked) {
+    const content = accordionItem.querySelector('.accordionContent');
+    const checkbox = accordionItem.querySelector('input[type="checkbox"]');
+    
+    // Toggle accordion content display based on checkbox state
+    if (isChecked) {
+        accordionItem.classList.add('active');
+        content.style.display = 'block';
+    } else {
+        accordionItem.classList.remove('active');
+        content.style.display = 'none';
+    }
+    
+    // Reset all other items (collapse and uncheck their checkboxes)
     document.querySelectorAll('.accordionItem').forEach(item => {
         if (item !== accordionItem) {
             item.classList.remove('active');
             item.querySelector('.accordionContent').style.display = 'none';
-                const otherToggle = item.querySelector('input[type="checkbox"]');
-                if (otherToggle) {
-                    otherToggle.checked = false;
+            const otherCheckbox = item.querySelector('input[type="checkbox"]');
+            if (otherCheckbox) otherCheckbox.checked = false;
         }
-            }
     });
+}
 
-    // Toggle current item
-    accordionItem.classList.toggle('active');
-    const content = accordionItem.querySelector('.accordionContent');
-    if (content) {
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    }
+// Add event listener to the checkbox change (this ensures toggle switch updates accordion)
+const checkboxes = document.querySelectorAll('.toggleSwitch input');
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const accordionItem = this.closest('.accordionItem');
+        const isChecked = this.checked;
+        
+        // Toggle accordion based on checkbox state
+        toggleAccordion(accordionItem, isChecked);
     });
 });
 
-function toggleAccordion() {
-    const accordionItem = this.parentElement.parentElement;
-    console.log('Accordion Item:', accordionItem);
-
-    // Collapse all other items
-    document.querySelectorAll('.accordionItem').forEach(item => {
-        if (item !== accordionItem) {
-            item.classList.remove('active');
-            item.querySelector('.accordionContent').style.display = 'none';
-    }
-    });
-
-    // Toggle current item
-    accordionItem.classList.toggle('active');
-    const content = accordionItem.querySelector('.accordionContent');
-    console.log('Content:', content);
-
-    if (content) {
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-}
-
-    const toggleSwitch = this.nextElementSibling.querySelector('input[type="checkbox"]');
-    if (toggleSwitch) {
-        toggleSwitch.checked = !toggleSwitch.checked;
-    }
-}
 
 /* class portfolioPiece {
     constructor(imageURL,title,description){

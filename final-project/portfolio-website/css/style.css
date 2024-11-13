@@ -66,7 +66,7 @@ button:active {
 #portfolioContainer {
     width: 90%;
     max-width: 1300px;
-    height: 80vh; /* Set a fixed viewport height */
+    height: 80vh; 
 
     margin: 0 auto;
 
@@ -78,7 +78,7 @@ button:active {
     flex-direction: column;
     flex: 0 0 auto;
 
-    overflow: hidden; /* Change from auto to hidden */
+    overflow: hidden; 
     box-sizing: border-box;
 
 }
@@ -86,6 +86,7 @@ button:active {
 #topBar {
     height: 30px; 
     width: 100%;
+    flex: 0 0 30px; /* Fixed height */
 
     display: flex;
     flex-direction: row;
@@ -100,11 +101,15 @@ button:active {
 #middleSection {
     display: flex;
     flex-grow: 1;
+    height: 100%; 
+    overflow: hidden;
 }
 
 #characterCustomizationContainer {
+    flex: 0 0 auto; 
+    width: 30%; 
+
     display: flex;
-    flex: 3;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -117,16 +122,19 @@ button:active {
 }
 
 #playerTimelineContainer{
+    flex: 0 0 auto; 
+    width: 50%; 
+    height: 100%;
+
     display: flex;
-    flex: 3;
     flex-direction: column;
 
 }
 
 #portfolioPlayerContainer {
-    min-width: 600px;
-    min-height: 400px;
-    flex: 6;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 60%;
 
     display: flex;
     flex-direction: column;
@@ -139,9 +147,9 @@ button:active {
 }
 
 #accTimeVolContainer {
-    min-width: 600px;
-    max-height: 250px;
-    flex: 4;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 40%;
 
     display: flex;
     flex-direction: row;
@@ -153,7 +161,9 @@ button:active {
 }
 
 #accessibilityEditor {
-    flex: 1;
+    flex: 0 0 auto; 
+    width: 10%;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -165,8 +175,8 @@ button:active {
 }
 
 #timelineContainer {
-    flex: 10;
-    min-width: 400px;
+    flex: 0 0 auto; 
+    width: 80%; /* Fixed width */
     
     border-left: 2px solid #5E9286;
     border-right: 2px solid #5E9286;
@@ -174,7 +184,10 @@ button:active {
 }
 
 #volumeViewer {
-    flex: 1;
+    flex: 0 0 auto; 
+    width: 10%;
+    height: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -185,24 +198,28 @@ button:active {
 }
 
 #rightContainer{
-    flex: 2;
+    flex: 0 0 auto;
+    width: 20%;
+    max-height: 100%;
 
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
 
     border-left: 2px solid #5E9286;
     box-sizing: border-box;
 
+    position: relative;
+
 }
 
 #projectSelector{
-    flex: 0 0 83%; /* Keeps the flex-basis to 83% of the parent height */
-    height: 400px; /* Set a fixed height for the container */
-    max-height: 850px; /* Optional: to ensure it doesn't grow beyond this */
+    flex: 0 0 90%; 
+    height: 600px; /* Fixed height */
+    max-height: 600px;
+
     overflow-y: auto;
     overflow-x: hidden;
-    border-bottom: 2px solid #5E9286;
+    
     position: relative;
     display: flex;
     flex-direction: column;
@@ -211,20 +228,19 @@ button:active {
 
 #socialsContainer{
     width: 100%;
-    flex: 1;
+    flex: 0 0 10%; 
 
-    position: sticky; 
+    position: sticky;
     bottom: 0;
-    left: 0;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 
-    box-sizing: border-box;
     padding: 5px;
-
+    box-sizing: border-box;
     border-top: 2px solid #5E9286;
+    background-color: #121619;
 
 }
 
@@ -402,7 +418,7 @@ button:active {
 
 }
 
-.accordionButton {
+.accordionTitle {
     width: 80%;
     color: #fff;
     text-align: left;
@@ -413,11 +429,10 @@ button:active {
 
 .accordionContent {
     padding: 10px;
-    background-color: #121619;
     display: none; 
     color: #f0f0f0;
 
-    max-height: 100%;       /* Limit the accordion content's height */
+    max-height: 100%;     
     overflow-y: auto; 
 }
 
@@ -449,6 +464,8 @@ button:active {
     font-weight: 300;
 
 }
+
+/* toggle switch*/
 
 .toggleSwitch {
     position: relative;
