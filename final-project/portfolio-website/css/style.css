@@ -13,7 +13,11 @@ html, body {
 }
 
 .websiteBackgroundColor {
-    background-color: #1a1e22;
+    background-image: url('../assets/backgrounds/websiteBackground.png');
+    background-attachment: fixed; /* Enables parallax effect */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
 }
 
 /* buttons */
@@ -64,8 +68,8 @@ button:active {
 /*---DEFAULT LAYOUT----*/
 
 #portfolioContainer {
-    width: 90%;
-    max-width: 1600px;
+    width: 85%;
+    max-width: 1500px;
     height: 80vh; 
 
     margin: 0 auto;
@@ -177,6 +181,8 @@ button:active {
 #timelineContainer {
     flex: 0 0 auto; 
     width: 80%; /* Fixed width */
+    flex: display;
+    flex-direction: column;
     
     border-left: 2px solid #5E9286;
     border-right: 2px solid #5E9286;
@@ -344,6 +350,16 @@ button:active {
 
 }
 
+#projectViewWindow img,
+#projectViewWindow iframe,
+#projectViewWindow canvas {
+    max-width: 100%; /* Fit within the container's width */
+    max-height: 100%; /* Fit within the container's height */
+    object-fit: contain; /* Maintain aspect ratio without cropping */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    display: block; /* Prevent inline alignment issues */
+}
+
 #projectControllerContainer{
     width: 100%;
     flex: 2;
@@ -444,9 +460,9 @@ button:active {
 }
 
 .projectShowcase {
-    width: 90%; /* Adjust width as needed */
-    max-width: 400px; /* Set a maximum width for larger screens */
-    margin: 10px auto; /* Center with margin */
+    width: 90%; 
+    max-width: 400px;
+    margin: 10px auto; 
     
     display: flex;
     flex-direction: column;
@@ -454,10 +470,10 @@ button:active {
 }
 
 .projectShowcase img {
-    width: 100%; /* Ensure the image fits inside the container */
-    max-height: 200px; /* Limit the height */
-    object-fit: cover; /* Keep the aspect ratio */
-    border-radius: 8px; /* Match container rounding */
+    width: 100%; 
+    max-height: 120px; 
+    object-fit: fit;
+    border-radius: 8px; 
 
 }
 

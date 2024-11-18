@@ -94,12 +94,14 @@
                             <div class="tabLabel">Timeline of my Life</div>
                             <img class="icon" src="assets/icons/hamburgerMenu.png" alt="hamburgerMenu">
                         </div>
+
+                        <img src="assets/graphics/timelinePlaceholder.png" alt="timeline Placeholder" style="max-width: 100%; height: auto;">
                     </div>
 
                     <div id="volumeViewer">
                        <div id="volumeBar">
                        </div>
-                       <img src="assets/volumeLines.png">
+                       <img src="assets/graphics/volumeLines.png">
                     </div>
 
                 </div>
@@ -215,28 +217,38 @@
             <button class="closeButton" id="closeAbout"></button>
     
             <div class="logoHeader">
-                <img src="assets/euniceLaiLogoBlack.png">
+                <img src="assets/aboutMe/euniceLaiLogoBlack.png">
                 <h2> Eunice Lai's Portfolio</h2>
             </div>
 
             <p>Hey there!</p>
             <h3>I'm Eunice, and I am a...</h3>
             <video width="320" height="50" autoplay muted controls loop>
-                <source src="assets/mypositionsVideo.mp4" type="video/mp4">
+                <source src="assets/aboutMe/" type="video/mp4">
             </video>
             <h2> My passion is to create meaningful media that fosters human connection.</h2>
 
         </div>
 
-        <img class="popupImage" src="assets/personalImage.jpeg" alt="Image of Eunice Lai">
+        <img class="popupImage" src="assets/aboutMe/" alt="Image of Eunice Lai">
 
     </div>
 
     <div id="backgroundOverlay"></div>
+    
+<!--scripts-->    
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!--gsap.js-->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!--pdf.js-->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+
+    <!--internal js files-->    
     <script src="js/popups.js"></script>
-    <script src="js/portfolioItems.js"></script>
+    <script type="module" src="js/portfolioData.js"></script>
+    <script type="module" src="js/portfolioMain.js"></script>
+
     
 
 </body>
