@@ -65,7 +65,7 @@ button:active {
 
 #portfolioContainer {
     width: 90%;
-    max-width: 1300px;
+    max-width: 1600px;
     height: 80vh; 
 
     margin: 0 auto;
@@ -339,6 +339,9 @@ button:active {
     margin: 0 auto;
     border-radius: 8px;
 
+    object-fit: cover;
+    overflow: hidden;
+
 }
 
 #projectControllerContainer{
@@ -441,21 +444,20 @@ button:active {
 }
 
 .projectShowcase {
-    height: 130px;
+    width: 90%; /* Adjust width as needed */
+    max-width: 400px; /* Set a maximum width for larger screens */
+    margin: 10px auto; /* Center with margin */
     
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
-    padding: 5px;
 }
 
 .projectShowcase img {
-    height: 120px;
-    width: 90%;
-    border-radius: 8px;
-
-    object-fit: cover;
+    width: 100%; /* Ensure the image fits inside the container */
+    max-height: 200px; /* Limit the height */
+    object-fit: cover; /* Keep the aspect ratio */
+    border-radius: 8px; /* Match container rounding */
 
 }
 
@@ -672,5 +674,3 @@ button:active {
     transition: opacity 200ms ease-in-out;
 
  }
-
-

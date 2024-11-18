@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: aqua;
+  }
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 2px solid black;
+}
