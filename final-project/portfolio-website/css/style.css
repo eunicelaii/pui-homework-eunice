@@ -166,7 +166,7 @@ button:active {
 
 #accessibilityEditor {
     flex: 0 0 auto; 
-    width: 10%;
+    width: 8%;
     height: 100%;
 
     display: flex;
@@ -191,7 +191,7 @@ button:active {
 
 #volumeViewer {
     flex: 0 0 auto; 
-    width: 10%;
+    width: 12%;
     height: 100%;
 
     display: flex;
@@ -245,7 +245,8 @@ button:active {
 
     padding: 5px;
     box-sizing: border-box;
-    border-top: 2px solid #5E9286;
+    border-top: 4px solid #5E9286;
+    border-left: 2px solid #5E9286;
     background-color: #121619;
 
 }
@@ -340,14 +341,24 @@ button:active {
 #projectViewWindow{
     width: 90%;
     flex: 10;
+    aspect-ratio: 16/9;
 
-    background-color: #3a3e42;
+    background-color: #030304;
     margin: 0 auto;
     border-radius: 8px;
 
     object-fit: cover;
     overflow: hidden;
 
+}
+
+#projectViewWindow video {
+    max-width: 100%;
+    max-height: 100%;
+    
+    object-fit: cover; 
+    top: 0;
+    left: 0;
 }
 
 #projectViewWindow img,
