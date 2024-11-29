@@ -1,59 +1,74 @@
 import { PortfolioPiece, photographyPieces, videographyPieces, productDesignPieces } from './portfolioData.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("portfolio stuff loaded");
 
-    // Global variables
+//title Global variables
+// #region Global Variables
     let currentContentType = null;
+
+    //note carousel global
     let currentCarouselIndex = 0;
     let currentSlides = [];
-    let pdfDoc = null;
+
+    //note pdf global
+    let currentPdfUrl = null; 
+    let pdfDoc = null
     let currentPage = 1;
     let totalPages = 0;
     const scale = 1.5;
     let isCanvasAActive = true;
+    let pageCache = {}; 
+// #endregion
 
-    const projectViewWindow = document.getElementById('projectViewWindow');
-    const projectTitleElement = document.querySelector('.projectName');
+//title Accordion
+// #region Accordion
+const projectViewWindow = document.getElementById('projectViewWindow');
+const projectTitleElement = document.querySelector('.projectName');
 
-    // Accordion function
-    function toggleAccordion(accordionItem, isChecked) {
-        const content = accordionItem.querySelector('.accordionContent');
-        const checkbox = accordionItem.querySelector('input[type="checkbox"]');
+//feature Accordion function
+function toggleAccordion(accordionItem, isChecked) {
+    const content = accordionItem.querySelector('.accordionContent');
+    const checkbox = accordionItem.querySelector('input[type="checkbox"]');
 
-        // Toggle accordion content display based on checkbox state
-        if (isChecked) {
-            accordionItem.classList.add('active');
-            content.style.display = 'block';
-        } else {
-            accordionItem.classList.remove('active');
-            content.style.display = 'none';
-        }
-
-        // Reset all other items (collapse and uncheck their checkboxes)
-        document.querySelectorAll('.accordionItem').forEach(item => {
-            if (item !== accordionItem) {
-                item.classList.remove('active');
-                item.querySelector('.accordionContent').style.display = 'none';
-                const otherCheckbox = item.querySelector('input[type="checkbox"]');
-                if (otherCheckbox) otherCheckbox.checked = false;
-            }
-        });
+    //note Toggle accordion content display based on checkbox state
+    if (isChecked) {
+        accordionItem.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+        accordionItem.classList.remove('active');
+        content.style.maxHeight = '0';
     }
 
-    // Add event listener to the checkbox change
-    const checkboxes = document.querySelectorAll('.toggleSwitch input');
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            const accordionItem = this.closest('.accordionItem');
-            const isChecked = this.checked;
-
-            // Toggle accordion based on checkbox state
-            toggleAccordion(accordionItem, isChecked);
-        });
+    //note reset all other items (collapse and uncheck their checkboxes)
+    document.querySelectorAll('.accordionItem').forEach(item => {
+        if (item !== accordionItem) {
+            item.classList.remove('active');
+            const otherCheckbox = item.querySelector('input[type="checkbox"]');
+            if (otherCheckbox) otherCheckbox.checked = false;
+            const otherContent = item.querySelector('.accordionContent');
+            if (otherContent) otherContent.style.maxHeight = '0';
+        }
     });
+} 
 
-    // Function to create portfolio items dynamically
+// Attach the function to each checkbox
+const accordionItems = document.querySelectorAll('.accordionItem');
+accordionItems.forEach(accordionItem => {
+    const checkbox = accordionItem.querySelector('input[type="checkbox"]');
+    if (checkbox) {
+        checkbox.addEventListener('change', () => {
+            toggleAccordion(accordionItem, checkbox.checked);
+        });
+    }
+});
+
+
+//#endregion
+
+//title function to create portfolio items dynamically
+// #region Inject Portfolio
     function createPortfolioItem(piece, category) {
         const template = document.querySelector(`#${category} .projectTemplate`);
         if (!template) {
@@ -145,8 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         break;
 
                     case 'pdf':
-                        loadPdf(content);
-                        break;
+                        currentPdfUrl = content;
+
+                        projectViewWindow.innerHTML = `<canvas id="pdf-canvas" style="width: 100%; height: 100%;"></canvas>`;
+                        loadPdf(currentPdfUrl);
 
                     case 'carousel':
                         currentSlides = JSON.parse(content);
@@ -162,10 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+// #endregion
 
-// Function to load the PDF and render the first page
+//title project loading functions
+// #region load functions
+    //feature load PDF function
     function loadPdf(pdfUrl) {
-        currentPage = 1; // Reset page to the first one whenever a new PDF is loaded.
+        currentPage = 1; // Reset to first page whenever a new PDF is loaded.
         const loadingTask = pdfjsLib.getDocument(pdfUrl);
         loadingTask.promise.then((pdf) => {
             pdfDoc = pdf;
@@ -177,34 +197,99 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to render a specific page of the PDF
     function renderPage(pageNumber) {
-        // Ensure projectViewWindow is cleared and ready
-        projectViewWindow.innerHTML = ''; 
-
+        // Clear previous content in the project view window
+        projectViewWindow.innerHTML = '';
+    
+        // Create a canvas to render the current page
         const canvas = document.createElement('canvas');
         canvas.id = 'pdf-canvas';
         canvas.style.width = '100%';
         canvas.style.height = '100%';
         projectViewWindow.appendChild(canvas);
-
-        pdfDoc.getPage(pageNumber).then((page) => {
-            const viewport = page.getViewport({ scale });
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-
-            const renderContext = {
-                canvasContext: canvas.getContext('2d'),
-                viewport: viewport,
-            };
-
-            page.render(renderContext).promise.catch((error) => {
-                console.error('Error rendering page:', error);
+    
+        const canvasContext = canvas.getContext('2d', { willReadFrequently: true });
+    
+        // Check if the page is in cache
+        if (pageCache[pageNumber]) {
+            // Render directly from cached image if available
+            const cachedImage = document.createElement('img');
+            cachedImage.src = pageCache[pageNumber]; // Use cached image URL
+            cachedImage.style.width = '100%';
+            cachedImage.style.height = '100%';
+            cachedImage.style.objectFit = 'contain';
+    
+            projectViewWindow.innerHTML = ''; // Clear the canvas
+            projectViewWindow.appendChild(cachedImage);
+        } else {
+            // Load and render the page if it's not in the cache
+            pdfDoc.getPage(pageNumber).then((page) => {
+                const viewport = page.getViewport({ scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+    
+                const renderContext = {
+                    canvasContext: canvasContext,
+                    viewport: viewport,
+                };
+    
+                // Render the page to the canvas
+                page.render(renderContext).promise.then(() => {
+                    // Convert the rendered canvas to an image and store in cache
+                    const imageURL = canvas.toDataURL();
+                    pageCache[pageNumber] = imageURL;
+    
+                    // Display the cached image
+                    const cachedImage = document.createElement('img');
+                    cachedImage.src = imageURL;
+                    cachedImage.style.width = '100%';
+                    cachedImage.style.height = '100%';
+                    cachedImage.style.objectFit = 'contain';
+    
+                    projectViewWindow.innerHTML = ''; // Clear the canvas
+                    projectViewWindow.appendChild(cachedImage);
+                }).catch((error) => {
+                    console.error('Error rendering page:', error);
+                });
+            }).catch((error) => {
+                console.error('Error getting page:', error);
             });
-        });
+        }
+    
+        // Preload next and previous pages for a smoother experience
+        if (pageNumber < totalPages && !pageCache[pageNumber + 1]) {
+            pdfDoc.getPage(pageNumber + 1).then((page) => {
+                const canvas = document.createElement('canvas');
+                const viewport = page.getViewport({ scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                const renderContext = {
+                    canvasContext: canvas.getContext('2d', { willReadFrequently: true }),
+                    viewport: viewport,
+                };
+                page.render(renderContext).promise.then(() => {
+                    pageCache[pageNumber + 1] = canvas.toDataURL(); // Cache next page image
+                });
+            });
+        }
+    
+        if (pageNumber > 1 && !pageCache[pageNumber - 1]) {
+            pdfDoc.getPage(pageNumber - 1).then((page) => {
+                const canvas = document.createElement('canvas');
+                const viewport = page.getViewport({ scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                const renderContext = {
+                    canvasContext: canvas.getContext('2d', { willReadFrequently: true }),
+                    viewport: viewport,
+                };
+                page.render(renderContext).promise.then(() => {
+                    pageCache[pageNumber - 1] = canvas.toDataURL(); // Cache previous page image
+                });
+            });
+        }
     }
-
-// Function to update the carousel view
+    //feature function to update the carousel view
     function updateCarouselView(index) {
         if (index < 0 || index >= currentSlides.length) {
             console.error('Invalid carousel index');
@@ -251,6 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('Backward button action not defined for current content type');
         }
     });
+// #endregion
 
     // Initialize everything
     initializePortfolio();
