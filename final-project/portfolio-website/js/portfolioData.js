@@ -65,5 +65,23 @@ const productDesignPieces = {
     }
 };
 
+const timelineImages = {
+    "meBaby": {
+        "src": "assets/timeline/meBaby.jpg",
+        "alt": "photo of me as a baby",
+    },
+    "meGraduated": {
+        "src": "assets/timeline/meGraduated.jpg",
+        "alt": "photo of me when I graduated from High School"
+    },
+    "meSummer": {
+        "src": "assets/timeline/meSummer.jpg",
+        "alt": "photo of me in Sri Lanka this summer",
+    },
+    "meNow": {
+        "src": "assets/timeline/meNow.jpg",
+        "alt": "photo of me right now!",
+    }
+}
 // Export data and class
-export { PortfolioPiece, photographyPieces, videographyPieces, productDesignPieces };
+export { PortfolioPiece, photographyPieces, videographyPieces, productDesignPieces, timelineImages };

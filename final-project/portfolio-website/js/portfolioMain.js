@@ -1,4 +1,4 @@
-import { PortfolioPiece, photographyPieces, videographyPieces, productDesignPieces } from './portfolioData.js';
+import { PortfolioPiece, photographyPieces, videographyPieces, productDesignPieces, timelineImages } from './portfolioData.js';
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -341,3 +341,27 @@ accordionItems.forEach(accordionItem => {
     // Initialize everything
     initializePortfolio();
 });
+
+//title timeline images
+document.addEventListener('DOMContentLoaded', function() {
+    const projectViewWindow = document.getElementById('projectViewWindow');
+    const timelineItems = document.querySelectorAll('.timelineItems');
+
+
+    timelineItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const timelineID = this.id;
+            const imageInfo = timelineImages[timelineID];
+            if (imageInfo) {
+                const content = imageInfo.src;
+                const alt = imageInfo.alt;
+
+                console.log(content);
+
+                projectViewWindow.innerHTML = ''; // Clear previous content
+                projectViewWindow.innerHTML = `<img src="${content}" alt="${alt}" style="width: 100%; height: 100%; object-fit: contain;">`;
+            }
+        });
+    });
+});
+
