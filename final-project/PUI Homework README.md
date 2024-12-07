@@ -13,35 +13,66 @@ Feel free to refer to this [Markdown Cheat Sheet](https://www.markdownguide.org/
 
 Describe your website (300 words).
 
-* What is the purpose of your website?   
-* Who is the target audience?  
-* What information do you convey with your website?   
-* How is it interesting and engaging? 
+What is the purpose of your website?
+Who is the target audience?
+What information do you convey with your website?
+How is it interesting and engaging?
+
+My website is a personal portfolio designed to showcase my skills in digital media and product design. Its primary purpose is to provide a creative and compelling representation of my work for potential employers, recruiters, and visitors from platforms like LinkedIn and social media. Specifically, the portfolio is tailored to support my applications for product management and product design roles, as outlined in the introduction section of the site.
+
+The website features three main categories of projects: photography, videography, and product design. In the photography section, there is a carousel displaying my film photography, with plans to expand this feature to include other types of images in separate carousels. The videography section highlights a documentary I created for HoneyPoi, a pop-up kitchen in Pittsburgh, with a link to the video hosted on YouTube. In the product design section, visitors can view two downloadable PDF files showcasing detailed slides of product design projects I’ve completed.
+
+What sets my website apart is its unique structure, which breaks away from conventional portfolio layouts. Instead of a typical hero page with separate sections or tabs, my portfolio is designed like a video editor, offering a highly interactive, streamlined experience. All content is consolidated on a single page, with projects and images displayed dynamically in a project window player, eliminating the need for additional navigation or page loads.
+
+This  design approach makes the website engaging and intuitive, reflecting my focus on user-centered design and creativity. By presenting my work in this cohesive and visually appealing format, the portfolio effectively conveys my skills, creative vision, and ability to think outside the box—qualities that are vital for roles in product management and design.
 
 ## Part 2: User Interaction
 
 How a user would interact with your website? For each step, briefly but clearly state the interaction type & how we should reproduce it.
 
-1. Interaction type. Click on X on page Y / scroll on page X, etc.  
-2. 
+1. Character customizer toggle - press on the toggle button to toggle on an animation in the character view window (WIP)
+2. Timeline - click on one of the pink "bars" to open an image in the project window, and scroll right to reveal more of the timeline
+3. Projects - click on the toggles to open any of the accordians
+4. Project files - click on the project thumbnail to send it to the project window
+5. Project click through - click on the forward or backward button in the project window to go forwards or backwards in the image carousel / pdf
+6. Social buttons - click on the social buttons to be redirected to its respective websites
+
 
 ## Part 3: External Tool
 
 Describe what important external tool you used (JavaScript library, Web API, animations, or other). Following the bulleted list format below, reply to each of the prompts.
 
-1. Name of tool1  
-   * Why did you choose to use it over other alternatives? (2 sentences max)  
+1. PDF.js
+   * Why did you choose to use it over other alternatives? (2 sentences max) 
+   It allows me to render and interact with PDFs directly on the website without requiring extra external applications. 
    * How you used it? (2 sentences max)  
+   Used to load and display PDF files in the #projectViewWindow, complete with caching for improved performance.
    * What does it add to your website? (2 sentences max)  
-2. Name of tool2
+    It provides an integrated experience for showcasing my product design PDFs without leaving the website.
+
+2. Font Awesome
+  * Why did you choose to use it over other alternatives? (2 sentences max) 
+   It offers a wide range of scalable icons and social logos that are easy to integrate into the website.
+  * How you used it? (2 sentences max)  
+   I used it for icons like gear symbols or social media buttons.
+  * What does it add to your website? (2 sentences max)  
+    Provides professional-looking icons without needing to design or host them manually.
 
 ## Part 4: Design Iteration
 
 Describe how you iterated on your prototypes, if at all, including any changes you made to your original design while you were implementing your website and the rationale for the changes. (4-8 sentences max)
 
+For the most part, I stuck to my initial project design. However, due to time reasons, I did have to simplify my website. 
+
+The feature that went through the most iteration is my projects tabs. Originally, I made it so that clicking the title will immediately open the accordion, but through trial and error, I made it so that you had to click the toggle to trigger the accordion, and I added animations so that it slid out instead of just "appearing". 
+
+The next feature that went through an overhaul is my timeline, where I intiially planned on creating a "scrubbable" timeline where images will flash on my screen. However, my TA has shown concerened about the ambitiousness of this feature, so I ended up settling with clickable items.
+
 ## Part 5: Implementation Challenge
 
 What challenges did you experience in implementing your website? (2-4 sentences max)
+
+I had challenge implementing the javascript to handle the different project types. As some of my project files are images, while others are PDF files, I had to write cases to handle all the scenerios, and seperate functions to load them in.
 
 ## Part 6: Generative AI Use and Reflection
 
@@ -59,49 +90,68 @@ For the following aspects of your project, edit the corresponding table cell to 
 
 | Tool Name | Ratings | design | plan | write code | debug | \_ (other?) |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Tool1 | Usage | Yes/No | Yes/No | Yes/No | Yes/No | Yes/No |
-| Tool1 | Productivity | 1~7 | 1~7 | 1~7 | 1~7 | 1~7 |
-| Tool2| Usage | Yes/No | Yes/No | Yes/No | Yes/No | Yes/No |
-| Tool2 | Productivity | 1~7 | 1~7 | 1~7 | 1~7 | 1~7 |
+| ChatGPT | Usage | No | Yes | Yes| Yes| / |
+|  | Productivity | / | 7 | 5 | 7 | / |
+| PearAI| Usage | No | No | Yes | No | / |
+|  | Productivity | / | / | 3 | / | / |
+| Bubble| Usage | No | No | No | No | / |
+|  | Productivity | / | / | / | / | / |
 
 
 ### Usage Reflection
 
+* ChatGPT  
+  * I will use it to debug code, as it can easily and efficiently identify wrong syntax and logic errors.
+  * I will not use it for writing my entire code, as it may use different syntax/ formatting styles we are taught in class. 
+* Bubble
+  * I will use the build guide to learn how to implement certain features into my website.
+  * I will not plagiarize off bubble.
+
+
 > Impact on your design and plan 
 * It matched my expectations and plan in [FP2](#generative-ai-use-plan) in that … For example, 
-  1. Tool1: 
-  2. Tool2:
+  1. ChatGPT: It helped me quickly debug my code, where it would help me find missing closing brackets and syntax errors. I also asked it to help me write overview plans on how to approach my code.
+  2. PearAI: It was very efficient in debugging my code as it was built into the system. 
+  3. Bubble: I did not end up using this at all because it required you to use their built in web builder.
 * It did not match my expectations and plan in [FP2](#generative-ai-use-plan) in that … For example, 
-  1. Tool1: 
-  2. Tool2:
+  1. ChatGPT: As my website is unconventional, the overview plans did not always suit what I needed.
+  2. PearAI: Although effective, because I was not used to the UI of it, I would make mistakes with copying code in which sometimes slowed down my progress.
+  3. Bubble: See above.
+
 * GenAI tool did/did not influence my final design and implementation plan because … For example, 
-  1. Tool1: 
-  2. Tool2:
+  1. ChatGPT: ChatGPT helped me revamp how my flexboxs worked. For example, it would tell me to implement fixed heights instead of entirely relying on flex grid so that the elements within the flex box would not affect the shape/ size of it. It also helped me with adding logci to collaps other accordion sections and ajust their max height when i opened a new section.
+  2. PearAI: /
+  3. Bubble: See above.
 
 > Use patterns
 * I accepted the generations when …  For example, 
-  1. Tool1: this tool once suggested … and I adjusted my design according to the suggestion because … 
-  2. Tool2: 
+  1. ChatGPT: I accepted the generations when I fully understood the functionality, and when it aligns with what we learned in class. For example, I accepted how it formatted my classe defintion within the portfolioData JS file because it aligned with the in lab examples. I also accepted generations that were made to help my code run more smoothly. For example, chatGPT told me to use .promise in page.render(renderContext).promise.then(() => { because  it ensures the program waits for the rendering to complete before executing dependent code.
+
+  2. PearAI: I accepted the generations when it helped my code run by removing errors.
+  3. Bubble: /
+
 * I critiqued/evaluated the generated suggestions by … For example, 
-  1. Tool1: this tool once suggested … but I modified/rejected the suggestion because … 
-  2. Tool2: 
+  1. ChatGPT: ChatGPT suggested that i integrate Boostrap's col-* classes, but I decided to stick with custom CSS for more control over my unique layout. ChatGPT also suggested using fixed heights for certain flexbox containers to ensure the child elements did not distort the layout, but I opted for a mix of auto heights and relative units for better responsiveness.
+  2. PearAI: /
+  3. Bubble: /
+
 
 
 > Pros and cons of using GenAI tools
 * Pros
-  1. Tool1: 
-  2. Tool2:
+  1. ChatGPT: It streamlined my coding and debugging progress, and reduced the amount of time needed searching for resources on documentations. It also made recommendations of librarys/ features I can use, instead of me having to manually look for them myself. 
+  2. PearAI: It helped me debug some of my code within the software.
 * Cons
-  1. Tool1: 
-  2. Tool2:
+  1. ChatGPT: Sometimes, I would develop an overdependence on ChatGPT where I kept checking my code with it, instead of manually debugging myself. Sometimes, it would also suggest changes that completely derail my code because it does not have the context needed to provide help.
+  2. PearAI: I accidentally deleted my correct code, slowing down my progress.
 
 
 ### Usage Log
 
 Document the usage logs (prompts and chat history links) for the GenAI tools you used. Some tools may not have an easy way to share usage logs, just try your best! Some instructions for different tools:
 
-1. [ChatGPT](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq) / [Gemini](https://support.google.com/gemini/answer/13743730?hl=en&co=GENIE.Platform%3DDesktop): share the anonymous link to all of your chat histories relevant to this project
-2. [GitHub Copilot (VSCode)](https://code.visualstudio.com/docs/copilot/copilot-chat#:~:text=You%20can%20export%20all%20prompts%20and%20responses%20for%20a%20chat%20session%20in%20a%20JSON%20file%20with%20the%20Chat%3A%20Export%20Session...%20command%20(workbench.action.chat.export)%20in%20the%20Command%20Palette.): export chat histories relevant to this project.
+1. [ChatGPT](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq): https://chatgpt.com/share/675385c5-c18c-8008-9cca-ec20a0262361
+2. [GitHub Copilot (VSCode)](https://code.visualstudio.com/docs/copilot/copilot-chat#:~:text=You%20can%20export%20all%20prompts%20and%20responses%20for%20a%20chat%20session%20in%20a%20JSON%20file%20with%20the%20Chat%3A%20Export%20Session...%20command%20(workbench.action.chat.export)%20in%20the%20Command%20Palette.): Did not use
 
 ---
 
@@ -255,8 +305,8 @@ Outline weekly milestones to plan your expected implementation progress until th
     - [ ] (optional) learn how to use and implement storybook
     - [ ]Connect Figma to working file
   - Research:
-    - [ ] Get inspiration and create a list of required features from other people’s portfolios
-    - [ ] Learn how to use the different JS libraries I will be implementing
+    - [X] Get inspiration and create a list of required features from other people’s portfolios
+    - [X] Learn how to use the different JS libraries I will be implementing
   - Basic Structure Development:
     - [X] Set up the basic HTML structure, including placeholders for each major section (eg. video player, character customization etc.)
     - [X] Create well-named flexboxes in CSS to support responsive layout and styling adjustments
@@ -265,38 +315,35 @@ Outline weekly milestones to plan your expected implementation progress until th
     - [X] Insert simple text for each section as a preview of the final content
 
 -**[ ] Week 11 Nov 11 \- Nov 15:**
-  - [ ] FP3 Due
+  - [X] FP3 Due
     - Icon and Imagery Creation:
-      - [ ] Design or gather all icons and visual elements needed for each feature.
-      - [ ] Replace placeholders with finalized icons and images, adjusting sizes and positions as needed.
-    - Interactivity and Styling Enhancements:
-      - [ ] Implement primary JS functions to support interactions (eg. change font, light/dark mode, other accessibility features)
-      - [ ] Fine-tune CSS for visual polish, adjusting colors, fonts, and layout details
+      - [X] Design or gather all icons and visual elements needed for each feature.
+      - [X] Replace placeholders with finalized icons and images, adjusting sizes and positions as needed.
+      - [X] Fine-tune CSS for visual polish, adjusting colors, fonts, and layout details
 
 - **[ ] Week 12 Nov 18 \- Nov 22:**
   - Project Navigator:
-    - [ ] Begin loading all project files and assets into the website, ensuring each project is correctly categorized within its respective collection (e.g., Photography, Videography, Product)
-    - [ ] Develop a collapsible list for easy navigation, allowing users to expand and collapse project categories
-    - [ ] (Optional) Make the preview thumbnail “scruabble”
-    - [ ] Integrate the video player with the Project Navigator, so selecting a project automatically loads it in the player for seamless viewing.
-    - [ ] Implement a pop-up feature that enlarges projects when clicked, providing a closer look at project details
-    - [ ] For projects that are external webpage links or documents, add a distinct visual cue (e.g., an icon or label) that indicates users can directly click to access the project.
+    - [X] Begin loading all project files and assets into the website, ensuring each project is correctly categorized within its respective collection (e.g., Photography, Videography, Product)
+    - [X] Develop a collapsible list for easy navigation, allowing users to expand and collapse project categories
+    - [X] Integrate the video player with the Project Navigator, so selecting a project automatically loads it in the player for seamless viewing.
+    - [X] Implement a pop-up feature that enlarges projects when clicked, providing a closer look at project details
+    - [X] For projects that are external webpage links or documents, add a distinct visual cue (e.g., an icon or label) that indicates users can directly click to access the project.
 
 - **[ ] Week 13 Nov 25 \- Nov 29 (Thanksgiving):**
     - Loading Screen:
-      - [ ] Write a script for the loading screen video
+      - [X] Write a script for the loading screen video
       - [ ] Film and edit introduction video, including relevant imagery and captioning for accessibility
       - [ ] Implement a loading screen into the website, create buttons that allow you to play, pause, or fastforward the video
 
     - [ ] Catch up on any unfinished tasks from previous weeks
 
 - **[ ] Week 14 Dec 2 \- Dec 6:**
-  - [ ] FP4 due 
+  - [X] FP4 due 
   - Final Debugging & Testing:
-    - [ ] Conduct a debugging session to address layout, functionality, and performance issues
-    - [ ] Run final accessibility checks for compatibility with screen readers, keyboard navigation, etc
+    - [X] Conduct a debugging session to address layout, functionality, and performance issues
+    - [X] Run final accessibility checks for compatibility with screen readers, keyboard navigation, etc
   - Documentation:
-    - [ ] Document the final implementation, including any features added or modified
+    - [X] Document the final implementation, including any features added or modified
 
 ### *Libraries and Other Components*
 
