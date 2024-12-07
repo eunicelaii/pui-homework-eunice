@@ -994,4 +994,15 @@ input:checked + .customizerSlider:before {
     transition: opacity 200ms ease-in-out;
 
  }
+
+ @media (max-width: 768px) {
+    .accordionContent {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .popupImage{
+        height: 0px;
+    }
+ }
  /* #endregion */

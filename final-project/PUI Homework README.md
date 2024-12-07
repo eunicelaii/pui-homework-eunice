@@ -155,6 +155,10 @@ Document the usage logs (prompts and chat history links) for the GenAI tools you
 
 ---
 
+### Appendix
+
+
+
 # **FP3 \- Final Project Check-in**
 
 Document the changes and progress of your project. How have you followed or changed your implementation & GenAI use plan and why? Remember to commit your code to save your progress.
