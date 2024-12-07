@@ -40,7 +40,7 @@ const videographyPieces = {
         "title": "HoneyPoi Colors of Spring Documentary",
         "description": "A documentary for HoneyPoi's Color of Spring event.",
         "time": "2024",
-        "content": "YK59L-BDaqY" // Replace with YouTube video ID
+        "content": "YK59L-BDaqY" 
     }
 };
 
