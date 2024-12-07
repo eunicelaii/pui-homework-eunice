@@ -45,7 +45,7 @@ const videographyPieces = {
 };
 
 const productDesignPieces = {
-    "Fitness-BFF": {
+/*     "Fitness-BFF": {
         "type": "pdf",
         "thumbnail": "assets/projects/product_design/FitnessBFF/FitnessBFF_thumbnail.png",
         "alt": "Fitness BFF project thumbnail",
@@ -53,7 +53,7 @@ const productDesignPieces = {
         "description": "A short practice PM pitch designing a product for event gathering for Strava",
         "time": "2024",
         "content": "assets/projects/product_design/FitnessBFF/FitnessBFF_content.pdf"
-    },
+    }, */
     "Netflix-Community-Feature": {
         "type": "pdf",
         "thumbnail": "assets/projects/product_design/netflix_community/netflix_community_thumbnail.png",
