@@ -237,8 +237,8 @@ button:active {
 }
 
 #projectSelector{
-    flex: 0 0 90%; 
-    height: 600px; /* Fixed height */
+    flex: 0 0 85%; 
+    height: 500x; /* Fixed height */
     max-height: 650px;
 
     overflow-y: auto;
